@@ -1,0 +1,40 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### VS Code ###
+.vscode/
+
+### Node / frontend ###
+node_modules/
+frontend/node_modules/
+frontend/.vite/
+frontend/*.tsbuildinfo
+npm-debug.log*
+yarn-error.log*
+
+### Secrets ###
+# 严禁提交真实密钥。复制 .env.example -> .env 后填入自己的配置（.env 已被忽略）
+.env
+.env.local
+*.pem
+*.key
+
+### OS ###
+.DS_Store
+Thumbs.dbbin/
+*.class
+
+*.log
+

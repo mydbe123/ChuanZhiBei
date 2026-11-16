@@ -1,0 +1,77 @@
+spring:
+  application:
+    name: zhixue-engine
+  # 读取项目根目录下的 .env（properties 格式），方便本地开发；系统环境变量优先级更高
+  config:
+    import: optional:file:./.env[.properties]
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/zhixue?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:}
+    hikari:
+      maximum-pool-size: 12
+      minimum-idle: 2
+      connection-timeout: 10000
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        jdbc.time_zone: Asia/Shanghai
+        jdbc.batch_size: 30
+        order_inserts: true
+  sql:
+    init:
+      mode: always
+      encoding: UTF-8
+      schema-locations: classpath:db/schema.sql
+  servlet:
+    multipart:
+      max-file-size: 25MB
+      max-request-size: 30MB
+  mvc:
+    async:
+      request-timeout: 300000
+  jackson:
+    default-property-inclusion: non_null
+    time-zone: Asia/Shanghai
+
+server:
+  port: ${SERVER_PORT:8080}
+  compression:
+    enabled: true
+    mime-types: application/json,text/html,text/css,application/javascript,image/svg+xml
+  tomcat:
+    threads:
+      max: 200
+    max-swallow-size: 32MB
+
+ai:
+  deepseek:
+    base-url: ${DEEPSEEK_BASE_URL:https://api.deepseek.com}
+    api-key: ${DEEPSEEK_API_KEY:}
+    model: ${DEEPSEEK_MODEL:deepseek-flash}
+    vision-model: ${DEEPSEEK_VISION_MODEL:deepseek-flash}
+    reasoning-model: ${DEEPSEEK_REASONING_MODEL:deepseek-v4-pro}
+    temperature: 0.7
+    max-tokens: 4096
+    timeout-seconds: 180
+    max-agent-steps: 4
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:zhixue-engine-dev-secret-key-please-change-in-production}
+    ttl-hours: 168
+  rag:
+    chunk-size: 480
+    chunk-overlap: 80
+    top-k: 5
+  rate-limit:
+    ai-requests-per-minute: 24
+
+logging:
+  level:
+    root: INFO
+    com.zhixue.engine: INFO
+    org.hibernate.SQL: WARN

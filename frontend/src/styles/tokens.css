@@ -1,0 +1,77 @@
+:root {
+  --brand-50: #eef0ff;
+  --brand-100: #dfe3ff;
+  --brand-300: #a5a9ff;
+  --brand-500: #4f46e5;
+  --brand-600: #4338ca;
+  --brand-700: #3730a3;
+  --accent-500: #06b6d4;
+  --accent-100: #cffafe;
+  --success-500: #10b981;
+  --success-100: #d1fae5;
+  --warn-500: #f59e0b;
+  --warn-100: #fef3c7;
+  --danger-500: #ef4444;
+  --danger-100: #fee2e2;
+
+  --bg: #f4f5fb;
+  --bg-accent: radial-gradient(1200px 600px at 15% -10%, rgba(79, 70, 229, 0.12), transparent 60%),
+    radial-gradient(900px 500px at 95% 0%, rgba(6, 182, 212, 0.1), transparent 55%);
+  --surface: #ffffff;
+  --surface-soft: #f8f9fe;
+  --surface-mute: #eef0f8;
+  --border: #e7e9f3;
+  --border-strong: #d6d9e8;
+  --text: #131a2b;
+  --text-soft: #5a6479;
+  --text-mute: #8b93a6;
+
+  --shadow-1: 0 1px 2px rgba(17, 24, 39, 0.05), 0 1px 3px rgba(17, 24, 39, 0.06);
+  --shadow-2: 0 10px 28px rgba(17, 24, 39, 0.08);
+  --shadow-3: 0 22px 56px rgba(17, 24, 39, 0.14);
+  --ring: 0 0 0 3px rgba(79, 70, 229, 0.22);
+
+  --radius-xs: 8px;
+  --radius-sm: 11px;
+  --radius-md: 15px;
+  --radius-lg: 20px;
+  --radius-xl: 26px;
+
+  --sidebar-w: 244px;
+  --topbar-h: 66px;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+}
+
+[data-theme='dark'] {
+  --brand-50: #1b1c33;
+  --brand-100: #232445;
+  --brand-300: #8b8ff0;
+  --brand-500: #7c83ff;
+  --brand-600: #6b72f5;
+  --brand-700: #98a0ff;
+  --accent-500: #22d3ee;
+  --accent-100: #0e3a44;
+  --success-100: #0d3b2e;
+  --warn-100: #43310a;
+  --danger-100: #45141b;
+
+  --bg: #0b0f1a;
+  --bg-accent: radial-gradient(1000px 520px at 12% -12%, rgba(96, 88, 255, 0.22), transparent 60%),
+    radial-gradient(900px 480px at 100% 0%, rgba(34, 211, 238, 0.12), transparent 55%);
+  --surface: #131826;
+  --surface-soft: #171d2d;
+  --surface-mute: #1d2437;
+  --border: #232a3d;
+  --border-strong: #2e374d;
+  --text: #eef1f8;
+  --text-soft: #a3acc2;
+  --text-mute: #78829a;
+
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-2: 0 12px 30px rgba(0, 0, 0, 0.42);
+  --shadow-3: 0 24px 60px rgba(0, 0, 0, 0.55);
+  --ring: 0 0 0 3px rgba(124, 131, 255, 0.32);
+}

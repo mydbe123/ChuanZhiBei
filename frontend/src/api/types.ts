@@ -77,7 +77,7 @@ export interface QuizSummary {
   topic: string
   difficulty: string
   questionCount: number
-  score: number | null
+  score?: number | null
   status: string
   createdAt: string
 }

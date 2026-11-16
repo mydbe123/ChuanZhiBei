@@ -63,6 +63,7 @@ public class LearningReportTool implements AgentTool {
 
         Map<String, Object> artifact = new LinkedHashMap<>();
         artifact.put("kind", "learning_report");
+        artifact.put("title", "近 30 天学习报告");
         artifact.put("stats", overview.stats());
         List<Map<String, Object>> weakList = new ArrayList<>();
         overview.weakPoints().forEach(p -> weakList.add(Map.of("point", p.point(), "mastery", p.mastery())));

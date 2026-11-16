@@ -69,6 +69,10 @@ app:
     top-k: 5
   rate-limit:
     ai-requests-per-minute: 24
+  demo:
+    # 为体验账号预置「完整学习故事」（个人笔记 / 10 天计划 / 3 次测验 / 3 段对话）。
+    # 已存在学习数据时自动跳过；正式上线可设为 false。
+    seed: ${DEMO_SEED:true}
 
 logging:
   level:

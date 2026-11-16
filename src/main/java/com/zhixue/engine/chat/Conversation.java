@@ -40,13 +40,24 @@ public class Conversation {
     @PrePersist
     void onCreate() {
         LocalDateTime now = LocalDateTime.now();
-        createdAt = now;
-        updatedAt = now;
+        if (createdAt == null) {
+            createdAt = now;
+        }
+        if (updatedAt == null) {
+            updatedAt = createdAt;
+        }
     }
 
     @PreUpdate
     void onUpdate() {
         updatedAt = LocalDateTime.now();
+    }
+
+    /** 供演示数据导入使用，可指定历史时间 */
+    public Conversation at(LocalDateTime created, LocalDateTime updated) {
+        this.createdAt = created;
+        this.updatedAt = updated;
+        return this;
     }
 
     public Long getId() {

@@ -44,7 +44,9 @@ public class StudyPlan {
 
     @PrePersist
     void onCreate() {
-        createdAt = LocalDateTime.now();
+        if (createdAt == null) {
+            createdAt = LocalDateTime.now();
+        }
     }
 
     public Long getId() {
@@ -109,5 +111,11 @@ public class StudyPlan {
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
+    }
+
+    /** 供演示数据导入使用，可指定历史时间 */
+    public StudyPlan at(LocalDateTime created) {
+        this.createdAt = created;
+        return this;
     }
 }

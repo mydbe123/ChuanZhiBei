@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.stereotype.Component;
@@ -16,6 +17,7 @@ import java.util.Comparator;
  * 启动时导入示例知识库（公共文档），保证 RAG 功能开箱即用。
  */
 @Component
+@Order(1)
 public class KnowledgeSeeder implements ApplicationRunner {
 
     private static final Logger log = LoggerFactory.getLogger(KnowledgeSeeder.class);

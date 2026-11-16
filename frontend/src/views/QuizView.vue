@@ -208,7 +208,7 @@ async function submit() {
         <BaseCard v-for="quiz in quizzes" :key="quiz.id" hover class="quiz-card">
           <div class="quiz-top">
             <span class="chip chip-brand">{{ DIFFICULTY_LABEL[quiz.difficulty] ?? quiz.difficulty }}</span>
-            <span v-if="quiz.score !== null" class="score-badge" :class="{ pass: quiz.score >= 60 }">
+            <span v-if="quiz.score != null" class="score-badge" :class="{ pass: quiz.score >= 60 }">
               {{ quiz.score }} 分
             </span>
             <span v-else class="chip">未作答</span>

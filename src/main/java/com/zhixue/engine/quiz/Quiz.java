@@ -46,7 +46,9 @@ public class Quiz {
 
     @PrePersist
     void onCreate() {
-        createdAt = LocalDateTime.now();
+        if (createdAt == null) {
+            createdAt = LocalDateTime.now();
+        }
     }
 
     public Long getId() {
@@ -119,5 +121,11 @@ public class Quiz {
 
     public void setCompletedAt(LocalDateTime completedAt) {
         this.completedAt = completedAt;
+    }
+
+    /** 供演示数据导入使用，可指定历史时间 */
+    public Quiz at(LocalDateTime created) {
+        this.createdAt = created;
+        return this;
     }
 }

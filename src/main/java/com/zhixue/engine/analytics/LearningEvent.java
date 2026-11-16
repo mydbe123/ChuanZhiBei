@@ -44,7 +44,9 @@ public class LearningEvent {
 
     @PrePersist
     void onCreate() {
-        createdAt = LocalDateTime.now();
+        if (createdAt == null) {
+            createdAt = LocalDateTime.now();
+        }
     }
 
     public static LearningEvent of(long userId, String type) {
@@ -77,6 +79,12 @@ public class LearningEvent {
 
     public LearningEvent detail(String detail) {
         this.detail = detail != null && detail.length() > 250 ? detail.substring(0, 250) : detail;
+        return this;
+    }
+
+    /** 供演示数据导入使用，可指定历史时间 */
+    public LearningEvent at(LocalDateTime time) {
+        this.createdAt = time;
         return this;
     }
 

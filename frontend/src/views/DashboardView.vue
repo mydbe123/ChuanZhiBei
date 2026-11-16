@@ -86,13 +86,13 @@ async function load() {
 
       <div class="hero-ring">
         <ProgressRing
-          :value="data?.stats.streakDays ? Math.min(100, data.stats.streakDays * 10) : 0"
+          :value="data?.stats.avgScore ?? 0"
           :size="132"
-          label="学习势能"
+          label="测验均分"
         />
         <div class="ring-meta">
-          <span>AI 调用 <strong>{{ data?.stats.aiCalls ?? 0 }}</strong> 次</span>
-          <span>累计 tokens <strong>{{ formatNumber(data?.ai.tokens ?? 0) }}</strong></span>
+          <span>连续打卡 <strong>{{ data?.stats.streakDays ?? 0 }}</strong> 天</span>
+          <span>AI 调用 <strong>{{ data?.stats.aiCalls ?? 0 }}</strong> 次 · <strong>{{ formatNumber(data?.ai.tokens ?? 0) }}</strong> tokens</span>
         </div>
       </div>
     </div>

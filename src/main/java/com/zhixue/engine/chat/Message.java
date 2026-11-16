@@ -44,7 +44,9 @@ public class Message {
 
     @PrePersist
     void onCreate() {
-        createdAt = LocalDateTime.now();
+        if (createdAt == null) {
+            createdAt = LocalDateTime.now();
+        }
     }
 
     public static Message of(long conversationId, String role, String content) {
@@ -75,35 +77,45 @@ public class Message {
         return reasoning;
     }
 
-    public void setReasoning(String reasoning) {
+    public Message setReasoning(String reasoning) {
         this.reasoning = reasoning;
+        return this;
     }
 
     public String getToolTrace() {
         return toolTrace;
     }
 
-    public void setToolTrace(String toolTrace) {
+    public Message setToolTrace(String toolTrace) {
         this.toolTrace = toolTrace;
+        return this;
     }
 
     public String getCitations() {
         return citations;
     }
 
-    public void setCitations(String citations) {
+    public Message setCitations(String citations) {
         this.citations = citations;
+        return this;
     }
 
     public int getTokens() {
         return tokens;
     }
 
-    public void setTokens(int tokens) {
+    public Message setTokens(int tokens) {
         this.tokens = tokens;
+        return this;
     }
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
+    }
+
+    /** 供演示数据导入使用，可指定历史时间 */
+    public Message at(LocalDateTime time) {
+        this.createdAt = time;
+        return this;
     }
 }

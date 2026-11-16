@@ -111,8 +111,9 @@ public class AnalyticsService {
         Stats stats = new Stats(minutes30, active30.size(), streak, quizCount,
                 avgScore == null ? 0 : (int) Math.round(avgScore), docs.size(), chunkTotal, aiCalls);
 
-        List<Activity> activities = events.findTop8ByUserIdOrderByCreatedAtDesc(userId).stream()
+        List<Activity> activities = events.findTop20ByUserIdOrderByCreatedAtDesc(userId).stream()
                 .filter(event -> !"QUIZ_ITEM".equals(event.getType()))
+                .limit(8)
                 .map(event -> new Activity(event.getType(), titleOf(event.getType()), event.getDetail(),
                         event.getCreatedAt()))
                 .toList();

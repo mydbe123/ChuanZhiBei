@@ -11,7 +11,7 @@ public interface LearningEventRepository extends JpaRepository<LearningEvent, Lo
 
     List<LearningEvent> findByUserIdAndCreatedAtAfterOrderByCreatedAtDesc(long userId, LocalDateTime after);
 
-    List<LearningEvent> findTop8ByUserIdOrderByCreatedAtDesc(long userId);
+    List<LearningEvent> findTop20ByUserIdOrderByCreatedAtDesc(long userId);
 
     @Query("""
             select e.knowledgePoint, avg(e.score), count(e)

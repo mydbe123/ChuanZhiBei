@@ -20,7 +20,8 @@ const meta = computed(() => {
   if (kind.value === 'study_plan') {
     return `${props.artifact.durationDays ?? 0} 天 · ${props.artifact.totalTasks ?? 0} 个任务`
   }
-  return '学习数据已更新'
+  const stats = props.artifact.stats as Record<string, number> | undefined
+  return stats ? `学习 ${stats.studyMinutes ?? 0} 分钟 · 打卡 ${stats.streakDays ?? 0} 天` : '学习数据已更新'
 })
 
 const caption = computed(() => {

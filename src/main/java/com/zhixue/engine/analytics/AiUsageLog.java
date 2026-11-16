@@ -52,7 +52,9 @@ public class AiUsageLog {
 
     @PrePersist
     void onCreate() {
-        createdAt = LocalDateTime.now();
+        if (createdAt == null) {
+            createdAt = LocalDateTime.now();
+        }
     }
 
     public static AiUsageLog of(Long userId, String scene, String model) {
@@ -82,6 +84,12 @@ public class AiUsageLog {
 
     public AiUsageLog blocked(boolean blocked) {
         this.blocked = blocked;
+        return this;
+    }
+
+    /** 供演示数据导入使用，可指定历史时间 */
+    public AiUsageLog at(LocalDateTime time) {
+        this.createdAt = time;
         return this;
     }
 

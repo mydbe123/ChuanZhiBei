@@ -2,6 +2,8 @@
 
 > 全国高校 AI Web 开发挑战赛参赛作品 —— **AI 原生个性化学习平台**
 > 以 AI Agent 为核心，融合 RAG 知识增强、多模态解题与全链路 AI 安全治理。
+>
+> 代码仓库：<https://github.com/mydbe123/ChuanZhiBei>
 
 ---
 
